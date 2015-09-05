@@ -45,9 +45,9 @@
 				clearInterval(myMar);
 			}
 
-			// scrollTxt.onmouseout = function(){
-			// 	myMar = setInterval(Marquee, speed);
-			// }
+			scrollTxt.onmouseout = function(){
+				myMar = setInterval(Marquee, speed);
+			}
 
 			function Marquee(){
 				if(scrollTxt2.offsetWidth - scrollTxt.scrollLeft <= 0){
