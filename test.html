@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+		<style>
+			#scrollTxt{
+				overflow:hidden;
+				width:1000px;
+				margin:10px auto;
+			}
+			#scrollTxt ul{
+				width:5000px;
+				list-style-type:none;
+			}
+			#scrollTxt ul li{
+				font-size:16px;
+				color:red;
+				white-space: nowrap;
+				float:left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="scrollTxt">
+			<ul>
+				<li id="scrollTxt1">
+					这是一个轮播的例子哟，哈哈，我是小轮播组件，我要测试轮播是否有效，嘻嘻。这是一个轮播的例子哟，哈哈，我是小轮播组件，我要测试轮播是否有效，嘻嘻。这是一个轮播的例子哟，哈哈，我是小轮播组件，我要测试轮播是否有效，嘻嘻。
+				</li>
+				<li id="scrollTxt2">
+
+				</li>
+			</ul>
+		</div>
+		<script>
+			var speed = 30;
+			var myMar = setInterval(Marquee, speed);
+			var scrollTxt = document.getElementById('scrollTxt');
+			var scrollTxt1 = document.getElementById('scrollTxt1');
+			var scrollTxt2 = document.getElementById('scrollTxt2');
+
+			scrollTxt2.innerHTML = scrollTxt1.innerHTML;
+
+			scrollTxt.onmouseover = function(){
+				clearInterval(myMar);
+			}
+
+			// scrollTxt.onmouseout = function(){
+			// 	myMar = setInterval(Marquee, speed);
+			// }
+
+			function Marquee(){
+				if(scrollTxt2.offsetWidth - scrollTxt.scrollLeft <= 0){
+					scrollTxt.scrollLeft -= scrollTxt1.offsetWidth;
+				}else{
+					scrollTxt.scrollLeft++;
+				}
+				console.log(scrollTxt.scrollLeft+'---'+scrollTxt1.offsetWidth+'---'+scrollTxt2.offsetWidth);
+			}
+		</script>
+	</body>
+</html>
